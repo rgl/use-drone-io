@@ -1,21 +1,25 @@
 ---
 kind: pipeline
 type: docker
-name: en
-
+name: amd64
+platform:
+  os: linux
+  arсh: amd64
 steps:
-- name: greeting
-  image: alpine
-  commands:
-  - echo hello world
-
+  - name: info
+    image: alpine
+    commands:
+      - uname -a
 ---
 kind: pipeline
 type: docker
-name: fr
-
+name: arm64
+platform:
+  os: linux
+  arсh: arm64
+  variant: armv8
 steps:
-- name: greeting
-  image: alpine
-  commands:
-  - echo bonjour monde
+  - name: greeting
+    image: alpine
+    commands:
+      - uname -a
